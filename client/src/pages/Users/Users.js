@@ -10,8 +10,10 @@ import { Input, TextArea, FormBtn } from "../../components/Form";
 class Users extends Component {
   state = {
     users: [],
+    user_id: "",
     call_sign: "",
     email: "",
+    password: "",
     comments: ""
   };
 
@@ -22,7 +24,7 @@ class Users extends Component {
   loadUsers = () => {
     API.getUsers()
       .then(res =>
-        this.setState({ users: res.data, call_sign: "", email: "", comments: "" })
+        this.setState({ users: res.data, user_id: "", call_sign: "", email: "", comments: "", password: "" })
       )
       .catch(err => console.log(err));
   };
@@ -47,7 +49,8 @@ class Users extends Component {
       API.saveUser({
         call_sign: this.state.call_sign,
         email: this.state.email,
-        comments: this.state.comments
+        comments: this.state.comments,
+        password: this.state.password
       })
         .then(res => this.loadUsers())
         .catch(err => console.log(err));
@@ -97,13 +100,13 @@ class Users extends Component {
             {this.state.users.length ? (
               <List>
                 {this.state.users.map(user => (
-                  <ListItem key={user._id}>
-                    <Link to={"/users/" + user._id}>
+                  <ListItem key={user.user_id}>
+                    <Link to={"/users/" + user.user_id}>
                       <strong>
                         {user.call_sign}
                       </strong>
                     </Link>
-                    <DeleteBtn onClick={() => this.deleteUser(user._id)} />
+                    <DeleteBtn onClick={() => this.deleteUser(user.user_id)} />
                   </ListItem>
                 ))}
               </List>

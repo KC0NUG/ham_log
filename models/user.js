@@ -1,13 +1,27 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+"use strict";
 
-const userSchema = new Schema({
-  call_sign: { type: String, required: true },
-  email: { type: String, required: true },
-  comments: String,
-  date: { type: Date, default: Date.now }
-});
+module.exports = function(sequelize, DataTypes) {
+  var user = sequelize.define("user", {
+      user_id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true // Automatically gets converted to SERIAL for postgres
+      },
+      call_sign: DataTypes.STRING,
+      email: DataTypes.STRING,
+      password: DataTypes.STRING,
+      comments: DataTypes.STRING,
+      
+  }, {
+      timestamps: true
+  });
 
-const User = mongoose.model("User", userSchema);
+  // user.associate = function(models) {
+  //     user.hasMany(models.UsersGroupsLocations, {
+  //         // through: "UsersGroupsLocations",
+  //         onDelete: "cascade"
+  //     });
+  // };
 
-module.exports = User;
+  return user;
+};
