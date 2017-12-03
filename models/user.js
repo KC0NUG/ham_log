@@ -17,6 +17,13 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   // user.associate = function(models) {
+  //   user.hasMany(models.contact, {
+  //       // through: "UsersGroupsLocations",
+  //       onDelete: "cascade"
+  //     //   force: false
+  //   });
+
+  // user.associate = function(models) {
   //     user.hasMany(models.UsersGroupsLocations, {
   //         // through: "UsersGroupsLocations",
   //         onDelete: "cascade"
