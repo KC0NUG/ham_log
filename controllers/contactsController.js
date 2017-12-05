@@ -21,7 +21,14 @@ module.exports = {
       },
       // limit: 1
     })
-    .then(results => res.json(results[0].dataValues))
+    .then(results => {
+      var modifiedResults = [];
+        results.forEach(sqlContact => {
+        modifiedResults.push(sqlContact.dataValues);
+      });
+      res.json(modifiedResults);
+    })
+    // .then(results => res.json(results[0].dataValues))
     .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
