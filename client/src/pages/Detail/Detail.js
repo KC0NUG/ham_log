@@ -74,8 +74,7 @@ class Detail extends Component {
                 placeholder="Contact Call Sign (required)"
               />
               <FormBtn
-                disabled={!(this.state.contact_call_sign)}
-                // disabled={!(this.state.email && this.state.call_sign)}
+                disabled={!(this.state.contact_call_sign)} 
                 onClick={this.handleFormSubmit}
               >
                 Submit Contact
@@ -94,8 +93,7 @@ class Detail extends Component {
                       <strong>
                         {contact.contact_call_sign}
                       </strong>
-                    </Link>
-                    {/* <DeleteBtn onClick={() => this.deleteUser(user.user_id)} /> */}
+                    </Link>                    
                   </ListItem>
                 ))}
               </List>
@@ -104,19 +102,8 @@ class Detail extends Component {
             )}
           </Col>
         </Row>
-        {/* <Row>
-          <Col size="md-10 md-offset-1">
-            <article>
-              <h1>Comments</h1>
-              <p>
-                {this.state.user.comments}
-              </p>
-            </article>
-          </Col>
-        </Row> */}
         <Row>
           <Col size="md-2">
-            {/* <Link to="/">← Back to Authors</Link> */}
             <Link to="/">← Back to Users</Link>
           </Col>
         </Row>
