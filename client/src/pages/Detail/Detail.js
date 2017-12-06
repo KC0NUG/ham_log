@@ -24,11 +24,8 @@ class Detail extends Component {
   }
 
   loadContacts = () => {
-    // API.getContact(this.state.user.user_id)
     API.getContact(this.props.match.params.id)
     .then(res => {
-      // var newContactAdded = this.state.contacts.concat(res.data);
-      // this.setState({ contacts: res.data, contact_id: res.data.contact_id, contact_call_sign: res.data.contact_call_sign })
       this.setState({ contacts: res.data })
     }
     )
