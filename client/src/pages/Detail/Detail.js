@@ -12,7 +12,8 @@ class Detail extends Component {
   state = {
     user: {},
     contacts: [],
-    contact_call_sign: ""
+    contact_call_sign: "",
+    createdAt: ""
   };
   
   
@@ -88,7 +89,7 @@ class Detail extends Component {
                   <ListItem key={contact.contact_id}>
                     <Link to={"/contacts/" + contact.contact_id}>
                       <strong>
-                        {contact.contact_call_sign}
+                        {contact.contact_call_sign + ' ' + contact.createdAt}
                       </strong>
                     </Link>                    
                   </ListItem>

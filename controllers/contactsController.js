@@ -8,14 +8,14 @@ module.exports = {
     // This uses the proper sequelize syntax to query for all users
     //
     db.contact.findAll({
-      attributes: ['contact_id','user_id','contact_call_sign']
+      attributes: ['contact_id','user_id','contact_call_sign','createdAt']
     })
     .then(contacts => res.json(contacts))
     .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
     db.contact.findAll({
-      attributes: ['contact_id','user_id','contact_call_sign'],
+      attributes: ['contact_id','user_id','contact_call_sign','createdAt'],
       where: {
         user_id: req.params.id
       },
