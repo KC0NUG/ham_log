@@ -89,7 +89,7 @@ class Detail extends Component {
                   <ListItem key={contact.contact_id}>
                     <Link to={"/contacts/" + contact.contact_id}>
                       <strong>
-                        {contact.contact_call_sign + ' ' + contact.createdAt}
+                        {contact.contact_call_sign + '  ' + contact.createdAt}
                       </strong>
                     </Link>                    
                   </ListItem>
